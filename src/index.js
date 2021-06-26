@@ -1,17 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Index from './pages/index';
+import Dashboard from './pages/dashboard';
+import { ToastContainer } from 'react-toastify';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+import "./globalStyles.scss";
+
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const darkTheme = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+});
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+<>
+<ThemeProvider theme={darkTheme}>
+  <CssBaseline/>
+  <Router>
+    <Switch>
+        <Route exact path="/dashboard">
+          <Dashboard/>
+        </Route>
+        <Route exact path="/">
+          <Index/>
+        </Route>
+    </Switch>
+  </Router>
+</ThemeProvider>
+<ToastContainer />
+</>,
+document.getElementById('root'));
