@@ -19,7 +19,7 @@ export default function Login() {
       if (result.error) {
         toast.error(result.error);
       } else {
-        localStorage.setItem('token', result);
+        localStorage.setItem('token', result.access_token);
         history.push('/dashboard');
       }
     };

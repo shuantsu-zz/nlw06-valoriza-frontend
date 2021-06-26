@@ -1,4 +1,4 @@
-const apiUri = 'http://localhost:3000';
+const apiUri = 'https://nlwvaloriza-filipeteixeira.herokuapp.com';
 
 export function login(email, password, callback) {
   fetch(apiUri + '/login', {

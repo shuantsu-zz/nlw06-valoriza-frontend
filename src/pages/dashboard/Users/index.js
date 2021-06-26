@@ -8,6 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Loader from '../../components/Loader';
 
 import { listUsers } from '../../../helpers/apiHandler';
 
@@ -43,7 +44,7 @@ function SimpleTable(props) {
   };
 
   return (<>
-    {users !== null && <Paper className={classes.root}>
+    {users !== null ? <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
@@ -70,7 +71,7 @@ function SimpleTable(props) {
           ))}
         </TableBody>
       </Table>
-    </Paper>}</>
+    </Paper> : <Loader/>}</>
   );
 }
 

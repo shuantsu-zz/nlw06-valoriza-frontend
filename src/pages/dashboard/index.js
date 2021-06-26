@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { Button } from '@material-ui/core';
 
 import { useHistory } from "react-router-dom";
 
@@ -13,6 +12,7 @@ import Box from '@material-ui/core/Box';
 import Users from './Users';
 import MakeCompliment from './MakeCompliment';
 import ShowCompliments from './ShowCompliments';
+import Profile from './Profile';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -104,7 +104,7 @@ export default function VerticalTabs() {
         <ShowCompliments/>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <Button variant="contained" color="primary" onClick={logoff}>Logoff</Button>
+        <Profile logoff={logoff}/>
       </TabPanel>
     </div>
   );

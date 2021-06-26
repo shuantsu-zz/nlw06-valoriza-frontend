@@ -24,7 +24,7 @@ export default function Register() {
       return;
     }
     const loginCallback = result => {
-      localStorage.setItem('token', result);
+      localStorage.setItem('token', result.access_token);
       history.push('/dashboard');
     };
     const callback = result => {

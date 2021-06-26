@@ -5,7 +5,7 @@ import Dashboard from './pages/dashboard';
 import { ToastContainer } from 'react-toastify';
 
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route
 } from "react-router-dom";

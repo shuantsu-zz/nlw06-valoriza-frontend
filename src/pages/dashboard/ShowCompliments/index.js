@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Button } from '@material-ui/core';
+import Loader from '../../components/Loader';
 
 import { listReceived, listSent, listTags, listUsers } from '../../../helpers/apiHandler';
 
@@ -66,7 +67,7 @@ function SimpleTable(props) {
       style={{marginLeft: '30px'}}>
       {toggle ? "Exibir recebidos" : "Exibir enviados"}
     </Button>
-    <Paper className={classes.root}>
+    {received !== null && sent !== null ? <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
           <TableCell>{toggle ? "Para" : "De"}</TableCell>
@@ -75,10 +76,10 @@ function SimpleTable(props) {
           <TableCell align="right">Data de envio</TableCell>
         </TableHead>
         <TableBody>
-          {received !== null && sent !== null && <Body data={toggle ? sent : received}/>}
+          <Body data={toggle ? sent : received}/>
         </TableBody>
       </Table>
-    </Paper>
+    </Paper>: <Loader/>}
     </>
   );
 }

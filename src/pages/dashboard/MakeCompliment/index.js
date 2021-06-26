@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { listTags, listUsers } from '../../../helpers/apiHandler';
 import { sendCompliment } from '../../../helpers/apiHandler';
 
+import Loader from '../../components/Loader';
+
 export default function MakeCompliment(props) {
 
   const [users, setUsers] = useState(null);
@@ -87,8 +89,8 @@ export default function MakeCompliment(props) {
   }, []);
 
   return <form onSubmit={submitCompliment}>
-    {tags !== null && <>
-      {users !== null && <UsersSelect usersData={users}/>}
+    {tags !== null && user !== null ? <>
+      <UsersSelect usersData={users}/>
       <TagsSelect tagsData={tags}/><br/>
       <TextField
       className={classes.message}
@@ -98,6 +100,6 @@ export default function MakeCompliment(props) {
       label="Mensagem"
       /><br/><br/>
       <Button variant="contained" type="submit" color="primary">Enviar!</Button>
-    </>}
+    </> : <Loader/>}
   </form>;
 };
